@@ -28,10 +28,10 @@ const OrderConfirm = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [setConfirmOrder]);
+  }, [scope]);
 
   const handleDragEnd = (
-    event: MouseEvent | TouchEvent | PointerEvent,
+    _: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo
   ) => {
     if (info.offset.y > 100) {
