@@ -3,8 +3,8 @@ import { CartState, DessertItem } from "../types/types";
 
 type CartStore = {
   items: CartState;
-  confirm: boolean;
-  confirmOrder: () => void;
+  confirmOrder: boolean;
+  setConfirmOrder: (confirm: boolean) => void;
   addItem: (item: DessertItem) => void;
   removeItem: (item: DessertItem) => void;
   getTotal: () => number;
@@ -16,9 +16,9 @@ type CartStore = {
 
 const useCartStore = create<CartStore>((set, get) => ({
   items: {},
-  confirm: false,
-  confirmOrder: () => {
-    set({ confirm: true });
+  confirmOrder: false,
+  setConfirmOrder: (confirm: boolean) => {
+    set({ confirmOrder: confirm });
   },
   addItem: (item) => {
     set((state) => ({

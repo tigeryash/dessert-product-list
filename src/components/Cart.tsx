@@ -2,7 +2,7 @@ import useCartStore from "../stores/useCartStore";
 import CartItem from "./CartItem";
 
 const Cart = () => {
-  const { getTotal, getItemCount, items, confirmOrder } = useCartStore();
+  const { getTotal, getItemCount, items, setConfirmOrder } = useCartStore();
   return (
     <div className="px-6 space-y-6 text-center">
       <h3 className="text-2xl font-bold text-orange-700 text-left">
@@ -30,7 +30,7 @@ const Cart = () => {
           </p>
           <button
             onClick={() => {
-              confirmOrder();
+              setConfirmOrder(true);
             }}
             className="rounded-full bg-orange-700 py-3.5 text-white font-semiboldd w-full"
           >

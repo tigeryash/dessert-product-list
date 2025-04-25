@@ -6,10 +6,10 @@ import OrderConfirm from "./components/OrderConfirm";
 import { useEffect } from "react";
 
 function App() {
-  const { confirm } = useCartStore();
+  const { confirmOrder } = useCartStore();
 
   useEffect(() => {
-    if (confirm) {
+    if (confirmOrder) {
       document.body.classList.add("overflow-hidden");
     } else {
       document.body.classList.remove("overflow-hidden");
@@ -18,13 +18,13 @@ function App() {
     return () => {
       document.body.classList.remove("overflow-hidden");
     };
-  }, [confirm]);
+  }, [confirmOrder]);
   return (
     <>
-      {confirm && <OrderConfirm />}
+      {confirmOrder && <OrderConfirm />}
       <main
         className={`flex flex-col space-y-8 px-6 py-6 font-sans ${
-          confirm && "pointer-events-none "
+          confirmOrder && "pointer-events-none "
         }`}
       >
         <Title />

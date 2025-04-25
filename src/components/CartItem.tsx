@@ -10,7 +10,7 @@ const CartItem = ({ item }: CartItemProps) => {
   return (
     <div className="flex justify-between items-center border-b-1 border-b-orange-300/20 pb-5">
       <div className="space-y-2">
-        <p className="font-semibold text-left">{item.item.food}</p>
+        <p className="font-semibold text-left">{item.item.title}</p>
 
         <div className="flex text-sm space-x-2">
           <p className="text-orange-700 font-bold w-3">{item.quantity}x</p>
