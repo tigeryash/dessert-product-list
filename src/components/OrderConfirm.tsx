@@ -3,7 +3,7 @@ import useCartStore from "../stores/useCartStore";
 import { motion, PanInfo, useAnimate } from "motion/react";
 
 const OrderConfirm = () => {
-  const { getTotal, setConfirmOrder } = useCartStore();
+  const { getTotal, setConfirmOrder, clearCart } = useCartStore();
   const containerRef = useRef<HTMLDivElement>(null);
   const [scope, animate] = useAnimate();
 
@@ -50,7 +50,8 @@ const OrderConfirm = () => {
       animate={{ backgroundColor: "rgba(0, 0, 0, 0.25)" }}
       exit={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
       transition={{ duration: 0 }}
-      className="inset-0 flex flex-col justify-end items-center space-y-10 fixed z-10  h-dvh"
+      className="inset-0 flex flex-col justify-end items-center space-y-10 
+      fixed z-10  h-dvh xl:h-auto xl:justify-center"
     >
       <motion.div
         ref={scope}
@@ -61,12 +62,13 @@ const OrderConfirm = () => {
         dragConstraints={{ top: 0 }}
         dragElastic={0.2}
         onDragEnd={handleDragEnd}
-        className="bg-white rounded-t-2xl w-full h-[85%] bottom-0 pt-4 px-6 "
+        className="bg-white rounded-t-2xl w-full xl:w-[40%] h-[85%] xl:h-auto 
+        bottom-0 pt-4 px-6 xl:pt-10 xl:px-10 xl:rounded-xl"
       >
-        <div className="w-20 h-[12px] bg-black/25 mx-auto rounded-full mb-4"></div>
+        <div className="w-20 h-[12px] bg-black/25 mx-auto rounded-full mb-4 xl:hidden"></div>
         <div className="max-h-[523px] overflow-y-auto pb-[50px]">
           <img src="/images/icon-order-confirmed.svg" />
-          <h1 className="text-[2.5rem] leading-[1.1] font-bold w-16 mt-5">
+          <h1 className="text-[2.5rem] leading-[1.1] font-bold w-16 xl:w-auto mt-5">
             Order Confirmed
           </h1>
           <p className="text-amber-900/70 mt-2">We hope you enjoy your food!</p>
@@ -75,7 +77,10 @@ const OrderConfirm = () => {
             <p className="text-sm opacity-90">Order Total</p>
             <p className="text-[1.5rem] font-bold">${getTotal().toFixed(2)}</p>
           </div>
-          <button className="rounded-full bg-orange-700 py-3.5 text-white font-semibold w-full">
+          <button
+            onClick={clearCart}
+            className="rounded-full bg-orange-700 py-3.5 xl:py-3 text-white font-semibold w-full"
+          >
             Start New Order
           </button>
         </div>

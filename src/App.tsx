@@ -23,13 +23,15 @@ function App() {
     <>
       {confirmOrder && <OrderConfirm />}
       <main
-        className={`flex flex-col space-y-8 px-6 py-6 font-sans ${
+        className={`min-h-screen flex flex-col space-y-8 xl:space-y-0 px-6 py-6 font-sans xl:p-20 ${
           confirmOrder && "pointer-events-none "
         }`}
       >
         <Title />
-        <FoodList />
-        <Cart />
+        <div className="flex flex-col space-y-8 xl:flex-row md:space-y-0 xl:justify-between ">
+          <FoodList />
+          <Cart />
+        </div>
       </main>
     </>
   );

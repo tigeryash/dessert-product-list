@@ -19,9 +19,14 @@ const AddToCartButton = ({ dessert }: AddToCartButtonProps) => {
     >
       <button
         onClick={() => removeItem(dessert)}
-        className="border border-white rounded-full p-1.5 flex justify-center items-center h-6 w-6 aspect-square"
+        className="border border-white rounded-full p-1.5 flex justify-center items-center
+         h-6 w-6 aspect-square  cursor-pointer"
       >
-        <img src="./images/icon-decrement-quantity.svg" alt="decrease" />
+        <img
+          src="./images/icon-decrement-quantity.svg"
+          color="orange"
+          alt="decrease"
+        />
       </button>
       <p className="text-white w-6 text-center">
         {items[dessert.title].quantity}
@@ -32,7 +37,8 @@ const AddToCartButton = ({ dessert }: AddToCartButtonProps) => {
           addItem(dessert);
           console.log("pressed");
         }}
-        className="border border-white rounded-full p-1.5 flex justify-center items-center h-6 w-6 aspect-square"
+        className="border border-white rounded-full p-1.5 flex justify-center items-center
+         h-6 w-6 aspect-square  cursor-pointer"
       >
         <img src="./images/icon-increment-quantity.svg" alt="increase" />
       </button>
@@ -43,8 +49,9 @@ const AddToCartButton = ({ dessert }: AddToCartButtonProps) => {
         addItem(dessert);
         console.log("pressed");
       }}
-      className="rounded-full flex gap-2 absolute -bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 
-  font-semibold bg-white px-6 border-stone-400 border-1 whitespace-nowrap  text-black  py-2.5"
+      className="rounded-full flex items-center justify-center gap-2 absolute -bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 
+  font-semibold bg-white px-6 border-stone-400 border-1 whitespace-nowrap  text-black  py-2.5 cursor-pointer 
+   "
     >
       <img src="./images/icon-add-to-cart.svg" alt="" /> Add To Cart
     </button>

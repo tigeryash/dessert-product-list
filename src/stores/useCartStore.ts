@@ -79,7 +79,7 @@ const useCartStore = create<CartStore>((set, get) => ({
     return items[item.title] !== undefined;
   },
   clearCart: () => {
-    set({ items: {} });
+    set({ items: {}, confirmOrder: false });
   },
 }));
 
